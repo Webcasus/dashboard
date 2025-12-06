@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# WebCasus Dashboard · React + Vite · Production-ready
 
-## Project info
+A production-grade React dashboard for **WebCasus.com**.  
+Central hub for managing AI-generated websites, brand assets, templates, projects, API keys, domains, and account settings. Built for performance, accessibility, and smooth developer experience.
 
-**URL**: https://lovable.dev/projects/57f44b26-f89f-4012-ac97-80fbe6b1bf39
+## Quick facts
+- Framework. React + Vite (functional components, React Router v6)
+- Styling. Tailwind CSS, Poppins font
+- Animations. Framer Motion (all variants respect `prefers-reduced-motion`)
+- Theme. Pure black background `#000000`, primary text `#FFFFFF`, secondary text `#FFFFFF99`, elevated surfaces `#1B1B1B`
+- Target. Desktop → mobile responsive, production Cloudflare Pages deployment
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/57f44b26-f89f-4012-ac97-80fbe6b1bf39) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
+## Tech stack
+- React 18
 - Vite
-- TypeScript
-- React
-- shadcn-ui
 - Tailwind CSS
+- Framer Motion
+- React Router v6
+- Lottie (optional for animated previews)
+- PropTypes or TypeScript support (recommended)
+- Optional: Cloudflare Pages for hosting
 
-## How can I deploy this project?
+## Features
+1. Fixed header with logo, page title, notifications, profile dropdown. Keyboard-accessible.  
+2. Fixed sidebar with expand/collapse (64px collapsed, 240px expanded). Smooth width transitions. Tooltip icons on collapse. Persisted state.  
+3. Scrollable main content area responsive to sidebar state.  
+4. Nine-nav structure: Dashboard · AI Generator · Brand Kit · Templates · Projects · Notifications · API Keys · Domains · Settings.  
+5. Full authentication flows: Sign In · Sign Up · Password reset + strength indicator.  
+6. Dashboard home: metrics cards, quick actions, staggered fade-in.  
+7. AI Generator UI: business name, industry, goal, generate action, preview + loading states.  
+8. Brand Kit: logo preview, palettes, font pairing, download with tick animation.  
+9. Templates library: filters, preview modal, hover lift.  
+10. Projects management: preview/edit/delete, status badges, animations.  
+11. Notifications center: animated entries, mark-as-read.  
+12. API Key manager: generate, regenerate, delete, masked keys, copy-to-clipboard.  
+13. Domain manager: add domains, DNS instructions, verification status, SSL indicator.  
+14. Settings with tabs: Profile, Security, Preferences, Billing, Delete Account.  
+15. Accessible markup and ARIA attributes. Real-time form validation. Prefers-reduced-motion respected.
 
-Simply open [Lovable](https://lovable.dev/projects/57f44b26-f89f-4012-ac97-80fbe6b1bf39) and click on Share -> Publish.
+## Folder structure (recommended)
+/src
+/assets
+/lottie
+/images
+/components
+/common
+Button.jsx
+Input.jsx
+Modal.jsx
+Tooltip.jsx
+Header.jsx
+Sidebar.jsx
+SidebarItem.jsx
+Notifications.jsx
+/pages
+Dashboard.jsx
+AiGenerator.jsx
+BrandKit.jsx
+Templates.jsx
+Projects.jsx
+NotificationsPage.jsx
+ApiKeys.jsx
+Domains.jsx
+Settings.jsx
+Auth
+SignIn.jsx
+SignUp.jsx
+ForgotPassword.jsx
+/hooks
+useSidebar.js
+usePrefersReducedMotion.js
+useAuth.js
+useLocalPersist.js
+useScrollTrigger.js
+/utils
+api.js
+validators.js
+format.js
+/animations
+variants.js
+App.jsx
+main.jsx
+tailwind.config.js
+postcss.config.js
+vite.config.js
 
-## Can I connect a custom domain to my Lovable project?
+bash
+Copy code
 
-Yes, you can!
+## Installation
+```bash
+git clone https://github.com/yourusername/webcasus-dashboard.git
+cd webcasus-dashboard
+npm ci
+Environment
+Create .env.local with these keys:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+makefile
+Copy code
+VITE_API_BASE=https://api.example.com
+VITE_SENTRY_DSN= # optional
+VITE_MAPS_KEY= # optional
+Dev commands
+bash
+Copy code
+npm run dev         # local dev server
+npm run lint        # run eslint
+npm run format      # run prettier (if configured)
+Production build & preview
+bash
+Copy code
+npm run build
+npm run preview
